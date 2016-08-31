@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  	<link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="bower_components/typed.js/js/typed.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.typeit/4.2.3/typeit.min.js"></script>
+    <script>
+
+    function init(hide,type){
+      type();
+      hide();
+    }
+    init(function(){
+      $('.element').hide()
+    }, function(){$('.element').typeIt({
+       strings: ['Enter your string here!']
+      });
+  });
+
+</script>
+    <title>Mitchell Lee</title>
+  </head>
+  <body>
+  
+<div class="element"></div>
+  </body>
+
+<style>
+div{
+	color:lime;
+	font-family:"Cutive Mono";
+}
+
+body {
+	background-color:black;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+</style>
+
+</html>
