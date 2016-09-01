@@ -12,10 +12,10 @@ $(document).ready(
 
     function(){$('.element').typeIt({
        strings: ['Hello World'],
-       speed:150,
+       speed:200,
        lifeLike: true,
        callback: function(){
-       	$("#arrow").append("<p id='init'>intializing...</p>")
+       	setTimeout(function(){$("#arrow").append("<p id='init'>intializing...</p>")},300)
        	setTimeout(function(){
        		$("#arrow").hide()
        		$(".element").hide();
@@ -43,19 +43,30 @@ $(document).ready(
   </body>
 
 <style>
+@font-face{font-family:"PressStart2p"; src: url('codeman38_press-start-2p/PressStart2p.ttf');}
+@font-face{font-family:"8bitwonder"; src:url('press_start/PrStart.ttf');}
 
 #title{
-	font-family:"VT323";
+	font-family:"PressStart2p";
 	font-weight: "bold";
 	color:lime;
-	font-size: 600%;
-	
+	font-size: 500%;
+	text-align: center;
+	margin-bottom: 2%;
+	margin-top:2%;
+	padding: none;
+
 }
 
 #sub{
 	font-family: "VT323";
-	font-weight: lighter;
+	font-weight: thin;
+	font-stretch: ultra-expanded;
+	font-size: 400%;
 	color:lime;
+	text-align: center;
+	padding-top: none;
+	margin-top:0;
 }
 
 #content{
