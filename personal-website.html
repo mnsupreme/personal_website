@@ -8,9 +8,9 @@
    
     <script src="https://cdn.jsdelivr.net/jquery.typeit/4.2.3/typeit.min.js"></script>
     <script>
-$(document).ready(
+$(document).ready(function(){
 
-    function(){$('.element').typeIt({
+    $('.element').typeIt({
        strings: ['Hello World'],
        speed:200,
        lifeLike: true,
@@ -18,17 +18,21 @@ $(document).ready(
        	setTimeout(function(){$("#arrow").append("<p id='init'>intializing...</p>")},300)
        	setTimeout(function(){
        		$("#arrow").hide()
-       		$(".element").hide();
+       		$(".element").remove();
        		$("#init").hide();
        		$("#content").show();
        	}, 2300)
        }
 
       });
-	}
-
 	
-)
+
+
+	$("#psuedo-input").change(function(){
+		$(".typed-cursor").before($("#psuedo-input").val())
+	})
+
+})
 
 </script>
     <title>Mitchell Lee</title>
@@ -37,9 +41,9 @@ $(document).ready(
   <div id = "content">
   <h1 id = "title">Mitchell Lee</h1>
   <h3 id = "sub">Web Developer</h3>
-  <span id = "pointer">&#9654;</span>
+  <span id = "pointer">&#9654;<span class="typed-cursor" id="psuedo">|</span><input id="psuedo-input" type="text"></span>
   </div>
-   <span id="arrow">&#9654; <span class="element"></span></span>
+   <span id="arrow">&#9654;<span class="element"></span></span>
   </body>
 
 <style>
@@ -82,8 +86,18 @@ body {
 	background-color:black;
 }
 
+.psuedo-input{
+	opacity:0;
+}
+
 .typed-cursor{
+	font-size: 1.4em;
+	color:lime;
+	font-weight:thin;
     opacity: 1;
+    width:0;
+    padding:0;
+    margin:0;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
