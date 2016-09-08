@@ -3,46 +3,12 @@
   <head>
   	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   	<link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
+    <link href="terminal.css" rel="stylesheet"
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
    
     <script src="https://cdn.jsdelivr.net/jquery.typeit/4.2.3/typeit.min.js"></script>
-    <script>
-$(document).ready(function(){
-
-    $('.element').typeIt({
-       strings: ['Hello World'],
-       speed:200,
-       lifeLike: true,
-       callback: function(){
-       	setTimeout(function(){$("#arrow").append("<p id='init'>intializing...</p>")},300)
-       	setTimeout(function(){
-       		$("#arrow").hide()
-       		$(".element").remove();
-       		$("#init").hide();
-       		$("#content").show();
-       	}, 2300)
-       }
-
-      });
-	
-    $("#psuedo-input").focus(function(){
-		$(".typed-cursor").show()
-	})
-
-	$("#psuedo-input").on("input",function(){
-		$("#command").text($("#psuedo-input").val())
-	})
-
-$("#Skills").change(function(){
-	$("#text").empty();
-	$("#text").append("<p> My name is Mitchell Lee. I am an aspiring web developer. I am also a Southern California native but I attend university Purdue. I like all things technology whether it be hardware or software, and am excited to see how technology will change the world for my generation </p>" + "<p>Some of My Hobbies:</p>" + "<ul>" +"<li>Hackathons</li>" +"<li>Airsoft</li>" +"<li>Anime</li>"+"<li>pondering the future</li>"+"</ul>")
-})
-	
-})
-
-
-</script>
+    <script src="terminal.js"></script>
     <title>Mitchell Lee</title>
   </head>
   <body>
@@ -105,7 +71,7 @@ $("#Skills").change(function(){
   </pre>
   <table>
     <tr>
-      <td><a id="Skills">Skills</a></td>
+      <td><a onclick="skills()" id="Skills">Skills</a></td>
 
       <td><a onclick="about()" id="About">About</a></td>
 
@@ -114,129 +80,14 @@ $("#Skills").change(function(){
       <td><a onclick="resume()" id="Resume">Resume</a></td>
     </tr>
   </table>
-  <sub>Type "help" for a list of commands</sub>
+ 
   <div id="text"></div>
+  <sub>Type "help" for a list of commands</sub>
   <div id = "pointer">&#9654; <span id="command"></span><span class="typed-cursor">|</span><input id="psuedo-input" type="text" autocomplete="true"></div>
+  <p id="error"></p>
   </div>
    <span id="arrow">&#9654; <span class="element"></span></span>
   </body>
 
-<style>
-
-@font-face{font-family:"PressStart2p"; src: url('codeman38_press-start-2p/PressStart2p.ttf');}
-@font-face{font-family:"8bitwonder"; src:url('press_start/PrStart.ttf');}
-
-#title{
-	font-family:"PressStart2p";
-	font-weight: "bold";
-	color:rgba(0,255,0,0.8);
-	font-size: 500%;
-	text-align: center;
-	margin-bottom: 2%;
-	margin-top:2%;
-	padding: none;
-
-}
-
-#sub{
-	font-family: "VT323";
-	font-weight: thin;
-	font-stretch: ultra-expanded;
-	font-size: 400%;
-	color:rgba(0,255,0,0.88);
-	text-align: center;
-  padding-bottom: 0;
-	padding-top: none;
-	margin-top:0;
-  margin-bottom:1%;
-}
-
-#text{
-	display: none;
-}
-
-pre{
-  margin-left: 6.5%;
-}
-
-
-table{
-  margin-top:1%;
-  margin-left:35%;
-  padding:1.2em;
-  border-radius:0.7em;
-  border-style: dashed;
-  border-color:lime;
-}
-
-a{
-  color:lime;
-  text-decoration: none;
-  padding:1em;
-}
-
-a:hover{
-  color:lime;
-  text-decoration: underline;
-}
-
-a:visited{
-  color:lime;
-  text-decoration: none;
-}
-#content{
-display:none;
-}
-
-div{
-	color:lime;
-	font-family:"Cutive Mono";
-}
-
-body {
-	background-color:black;
-}
-
-#psuedo-input{
-	opacity:0;
-}
-
-.typed-cursor{
-	display: none;
-	font-size: 1.4em;
-	color:lime;
-	font-weight:thin;
-    opacity: 1;
-    width:0;
-    padding:0;
-    margin:-0.2em;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-
-span {
-	color:lime;
-	font-family: "Cutive Mono";
-}
-
-
-
-</style>
 
 </html>
