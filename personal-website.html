@@ -26,13 +26,21 @@ $(document).ready(function(){
 
       });
 	
-
+    $("#psuedo-input").focus(function(){
+		$(".typed-cursor").show()
+	})
 
 	$("#psuedo-input").on("input",function(){
 		$("#command").text($("#psuedo-input").val())
 	})
 
+$("#Skills").change(function(){
+	$("#text").empty();
+	$("#text").append("<p> My name is Mitchell Lee. I am an aspiring web developer. I am also a Southern California native but I attend university Purdue. I like all things technology whether it be hardware or software, and am excited to see how technology will change the world for my generation </p>" + "<p>Some of My Hobbies:</p>" + "<ul>" +"<li>Hackathons</li>" +"<li>Airsoft</li>" +"<li>Anime</li>"+"<li>pondering the future</li>"+"</ul>")
 })
+	
+})
+
 
 </script>
     <title>Mitchell Lee</title>
@@ -42,7 +50,7 @@ $(document).ready(function(){
   <h1 id = "title">Mitchell Lee</h1>
   <h3 id = "sub">Web Developer</h3>
    <pre>                                                    
-                                                                               p.,..h./._..-...
+                                                                               ..,..h./._..-...
                                                                             _o::---...........-..-
                                                                           s/:--..............`...:/-
                                                                         :----....-........```...`..-
@@ -97,14 +105,18 @@ $(document).ready(function(){
   </pre>
   <table>
     <tr>
-      <td><a href="" id="skills">Skills</a></td>
+      <td><a id="Skills">Skills</a></td>
 
-      <td><a href="" id="Personal">Personal</a></td>
+      <td><a onclick="about()" id="About">About</a></td>
 
-      <td><a href="" id="Contact">Contact</a></td>    
+      <td><a onclick="contact()" id="Contact">Contact</a></td>    
+
+      <td><a onclick="resume()" id="Resume">Resume</a></td>
     </tr>
   </table>
-  <div id = "pointer">&#9654; <span id="command"></span><span class="typed-cursor">|</span><input id="psuedo-input" type="text"></div>
+  <sub>Type "help" for a list of commands</sub>
+  <div id="text"></div>
+  <div id = "pointer">&#9654; <span id="command"></span><span class="typed-cursor">|</span><input id="psuedo-input" type="text" autocomplete="true"></div>
   </div>
    <span id="arrow">&#9654; <span class="element"></span></span>
   </body>
@@ -139,17 +151,19 @@ $(document).ready(function(){
   margin-bottom:1%;
 }
 
-pre{
-  text-align: left;
+#text{
+	display: none;
 }
 
-
+pre{
+	margin-left:6.5%;
+}
 
 table{
   margin-top:1%;
   margin-left:35%;
   padding:1.2em;
-  border-radius:0.2em;
+  border-radius:0.7em;
   border-style: dashed;
   border-color:lime;
 }
@@ -187,6 +201,7 @@ body {
 }
 
 .typed-cursor{
+	display: none;
 	font-size: 1.4em;
 	color:lime;
 	font-weight:thin;
